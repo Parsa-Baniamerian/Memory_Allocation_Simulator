@@ -2,12 +2,6 @@
 
 This is a simple C++ program that simulates a memory allocator. The program initializes a memory space with partitions of varying sizes and allows users to allocate and deallocate memory blocks using different allocation strategies.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [How to Use](#how-to-use)
-- [Allocation Strategies](#allocation-strategies)
-- [Sample Run](#sample-run)
 
 ## Introduction
 
