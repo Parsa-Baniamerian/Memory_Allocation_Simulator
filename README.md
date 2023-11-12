@@ -1,11 +1,11 @@
-# Memory Allocator
+# Memory Allocation Simulator
 
-This is a simple C++ program that simulates a memory allocator. The program initializes a memory space with partitions of varying sizes and allows users to allocate and deallocate memory blocks using different allocation strategies.
+A C++ program simulating memory allocation using various strategies
 
 
-## Introduction
+## Overview
 
-The program defines a `MemoryAllocator` class that manages memory blocks. Each memory block has an identifier, size, and allocation status. The program supports three allocation strategies: First-fit (default), Best-fit, and Worst-fit.
+This project implements a simple memory allocator that simulates memory allocation strategies: First-fit, Best-fit, and Worst-fit. It generates random partition sizes and allows users to allocate memory for processes based on the chosen strategy.
 
 
 ## Allocation Strategies
