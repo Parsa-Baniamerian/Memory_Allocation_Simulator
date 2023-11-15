@@ -26,8 +26,6 @@ public:
     // Constructor: Initializes memory blocks with specified partition sizes
     MemoryAllocator(vector<int> partitionSizes)
     {
-        internalFragmentation = 0;
-
         for (int i = 0; i < partitionSizes.size(); ++i)
         {
             MemoryBlock block = {i + 1, partitionSizes[i], false};
@@ -36,20 +34,20 @@ public:
     }
 
     // Getters
-    int getInternalFragmentation() const
+    int getInternalFragmentation()
     {
         return internalFragmentation;
     }
 
-    int getExternalFragmentation() const
+    int getExternalFragmentation()
     {
         return externalFragmentation;
     }
 
-    int calculateExternalFragmentation() const
+    int calculateExternalFragmentation()
     {
         int exFrag = getExternalFragmentation();
-        for (const MemoryBlock &block : memory)
+        for (MemoryBlock &block : memory)
         {
             if (!block.allocated)
             {
@@ -63,7 +61,7 @@ public:
     // Allocates memory for a process based on the specified strategy (First-fit, Best-fit, Worst-fit)
     void allocateMemory(int processSize, char strategy)
     {
-        auto comp = [](const MemoryBlock &a, const MemoryBlock &b)
+        auto comp = [](MemoryBlock &a, MemoryBlock &b)
         {
             return a.size < b.size;
         };
@@ -94,9 +92,9 @@ public:
     }
 
     // Checks if all memory blocks are allocated
-    bool allMemoryAllocated() const
+    bool allMemoryAllocated()
     {
-        for (const MemoryBlock &block : memory)
+        for (MemoryBlock &block : memory)
         {
             if (!block.allocated)
             {
@@ -107,10 +105,10 @@ public:
     }
 
     // Prints the current status of memory blocks
-    void printMemoryStatus() const
+    void printMemoryStatus()
     {
         cout << "Memory Status:\n";
-        for (const MemoryBlock &block : memory)
+        for (MemoryBlock &block : memory)
         {
             cout << "Block " << block.id << ": Size=" << block.size << ", Allocated=" << (block.allocated ? "Yes" : "No") << "\n";
         }
